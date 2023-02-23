@@ -4,6 +4,7 @@ const express = require('express')
 const mogoose = require('mongoose')
 const app = express()
 
+
 // forma de ler JSON / middlewares
 app.use(
     express.urlencoded({
@@ -13,6 +14,9 @@ app.use(
 
 app.use(express.json())
 
+const personRoutes = require('./routes/personRoutes')
+
+app.use('/person', personRoutes)
 
 // rota inicial / endpoint
 app.get('/',(req,res)=>{
